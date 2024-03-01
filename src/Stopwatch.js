@@ -27,7 +27,7 @@ const Stopwatch = () => {
 
   return (
     <div className="flex justify-center items-center w-full min-h-screen">
-      <div className="flex flex-col items-center justify-center gap-4 bg-slate-200 p-4 rounded-2xl">
+      <div className="flex flex-col items-center justify-center gap-4 bg-slate-200 p-4 rounded-2xl shadow-inner">
         <div className="w-full">
           <h1 className="font-bold text-xl text-center">Issa Stopwatch!!</h1>
         </div>
@@ -36,14 +36,14 @@ const Stopwatch = () => {
             {(time / 1000).toFixed(2)}
           </p>
         </div>
-        <div className="flex w-full justify-around bg-slate-400 rounded-lg text-white">
-          <button className="rounded-lg p-2 w-14" onClick={startStopwatch}>
+        <div className="flex w-full justify-around bg-slate-400 rounded-lg text-white font-light">
+          <button className="rounded-lg p-2 w-14 hover:bg-slate-500 hover:shadow-inner" onClick={startStopwatch}>
             Start
           </button>
-          <button className="rounded-lg p-2 w-14" onClick={stopStopwatch}>
+          <button className="rounded-lg p-2 w-14 hover:bg-slate-500 hover:shadow-inner" onClick={stopStopwatch}>
             Stop
           </button>
-          <button className="rounded-lg p-2 w-14" onClick={resetStopwatch}>
+          <button className="rounded-lg p-2 w-14 hover:bg-slate-500 hover:shadow-inner" onClick={resetStopwatch}>
             Reset
           </button>
         </div>
