@@ -26,8 +26,8 @@ const Stopwatch = () => {
   };
 
   return (
-    <div className="flex justify-center items-center w-full min-h-screen">
-      <div className="flex flex-col items-center justify-center gap-4 bg-slate-200 p-4 rounded-2xl shadow-inner">
+    <div className="flex justify-center items-center w-full min-h-screen bg-slate-200 shadow-inner">
+      <div className="flex flex-col items-center justify-center gap-4 p-4 rounded-2xl">
         <div className="w-full">
           <h1 className="font-bold text-xl text-center">Issa Stopwatch!!</h1>
         </div>
