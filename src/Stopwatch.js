@@ -5,21 +5,20 @@ const Stopwatch = () => {
   const [isRunning, setIsRunning] = useState(false);
 
   useEffect(() => {
-    let interval = null;
+    let interval;
 
     if (isRunning) {
       interval = setInterval(() => {
-        setTime((prevTime) => prevTime + 10);
+        setTime(prevTime => prevTime + 10);
       }, 10);
-    } else {
+    } else if (interval) {
       clearInterval(interval);
     }
 
     return () => clearInterval(interval);
   }, [isRunning]);
 
-  const startStopwatch = () => setIsRunning(true);
-  const stopStopwatch = () => setIsRunning(false);
+  const toggleStopwatch = () => setIsRunning(!isRunning);
   const resetStopwatch = () => {
     setTime(0);
     setIsRunning(false);
@@ -37,13 +36,16 @@ const Stopwatch = () => {
           </p>
         </div>
         <div className="flex w-full justify-around bg-slate-400 rounded-lg text-white font-light">
-          <button className="rounded-lg p-2 w-14 hover:bg-slate-500 hover:shadow-inner" onClick={startStopwatch}>
-            Start
+          <button 
+            className="rounded-lg p-2 w-20 hover:bg-slate-500 hover:shadow-inner" 
+            onClick={toggleStopwatch}
+          >
+            {isRunning ? 'Pause' : 'Start'}
           </button>
-          <button className="rounded-lg p-2 w-14 hover:bg-slate-500 hover:shadow-inner" onClick={stopStopwatch}>
-            Stop
-          </button>
-          <button className="rounded-lg p-2 w-14 hover:bg-slate-500 hover:shadow-inner" onClick={resetStopwatch}>
+          <button 
+            className="rounded-lg p-2 w-20 hover:bg-slate-500 hover:shadow-inner" 
+            onClick={resetStopwatch}
+          >
             Reset
           </button>
         </div>

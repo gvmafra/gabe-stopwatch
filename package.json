@@ -2,6 +2,8 @@
   "main": "main.js",
   "name": "gabe-stopwatch",
   "version": "0.1.0",
+  "description": "A simple stopwatch app using Electron and React",
+  "author": "Gabriel Versiani Mafra",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.17.0",
@@ -18,7 +20,30 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "electron-start": "electron .",
-    "dev": "BROWSER=none concurrently \"npm start\" \"wait-on http://localhost:3000 && npm run electron-start\""
+    "dev": "BROWSER=none concurrently \"npm start\" \"wait-on http://localhost:3000 && npm run electron-start\"",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
+  },
+  "build": {
+    "appId": "com.gvm-stopwatch.id",
+    "productName": "Issa Stopwatch",
+    "files": [
+      "build/**/*",
+      "main.js",
+      "package.json"
+    ],
+    "main": "main.js",
+    "directories": {
+      "buildResources": "assets",
+      "output": "dist"
+    },
+    "mac": {
+      "category": "your.app.category.type"
+    },
+    "win": {
+      "target": "NSIS",
+      "icon": "icon.ico"
+    }
   },
   "eslintConfig": {
     "extends": [
@@ -41,8 +66,10 @@
   "devDependencies": {
     "concurrently": "^8.2.2",
     "electron": "^29.1.0",
+    "electron-builder": "^24.12.0",
     "electron-is-dev": "^3.0.1",
     "tailwindcss": "^3.4.1",
-    "wait-on": "^7.2.0"
+    "wait-on": "^7.2.0",
+    "@babel/plugin-proposal-private-property-in-object": "^7.16.7"
   }
 }
